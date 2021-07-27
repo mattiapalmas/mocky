@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_blue">
+
+    <View
+        android:id="@+id/top_border_v"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_iv"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_border_v" />
+
+    <View
+        android:id="@+id/border_bottom_img_v"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_iv" />
+
+    <TextView
+        android:id="@+id/published_at_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:paddingStart="@dimen/small_padding"
+        android:paddingEnd="@dimen/small_padding"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/border_bottom_img_v"
+        tools:text="2017-01-29 23:42:03" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:paddingStart="@dimen/small_padding"
+        android:paddingEnd="@dimen/small_padding"
+        android:textColor="@color/black"
+        android:textSize="@dimen/medium_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/published_at_tv"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Quis enim redargueret? Prioris generis est docilitas, memoria; Nam quid possumus facere melius? Tubulo putas dicere? Quid nunc honeste dicit?" />
+
+    <TextView
+        android:id="@+id/description_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:paddingStart="@dimen/small_padding"
+        android:paddingEnd="@dimen/small_padding"
+        android:paddingBottom="@dimen/medium_padding"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ita separantur, ut disiuncta sint, quo nihil potest esse perversius. Fortemne possumus dicere eundem illum Torquatum? Tibi hoc incredibile, quod beatissimum. Quae cum praeponunt, ut sit aliqua rerum selectio, naturam videntur sequi; Poterat autem inpune; Age, inquies, ista parva sunt. Duo Reges: constructio interrete. Istam voluptatem perpetuam quis potest praestare sapienti? Facete M. Num igitur utiliorem tibi hunc Triarium putas esse posse, quam si tua sint Puteolis granaria?" />
+
+    <View
+        android:id="@+id/bottom_border_v"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/description_tv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/medium_margin"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom_border_v" />
+</androidx.constraintlayout.widget.ConstraintLayout>

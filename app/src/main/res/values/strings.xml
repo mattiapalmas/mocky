@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Mocky</string>
-    <string name="check_out_latest_posts">Check out our latest posts</string>
+    <string name="posts">Posts:</string>
 </resources>
