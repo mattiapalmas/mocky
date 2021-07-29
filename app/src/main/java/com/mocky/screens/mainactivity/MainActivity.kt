@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         observeLiveData()
         setupPostsRecyclerView()
+        handleMainToggleBtn()
         viewModel.loadPosts()
     }
 
@@ -48,6 +49,26 @@ class MainActivity : AppCompatActivity() {
         posts_rv.layoutManager = layoutManager
         posts_rv.adapter =
             PostsAdapter(postsList)
+    }
+
+    private fun handleMainToggleBtn() {
+        main_toggle_btn.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.postsLiveData.value?.let { posts ->
+                postsList.clear()
+
+                if (isChecked) {
+                    val filteredPosts = posts.filter { it.user_id == 1 }
+                    val postsOrdered =
+                        filteredPosts.sortedByDescending { it.getPublishedAtCalendar() }
+
+                    postsList.addAll(postsOrdered)
+                } else {
+                    postsList.addAll(posts)
+                }
+
+                posts_rv.adapter?.notifyDataSetChanged()
+            }
+        }
     }
 
     private fun showSnackbar(error: String) {

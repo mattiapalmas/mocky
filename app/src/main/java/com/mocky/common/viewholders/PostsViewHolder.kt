@@ -21,7 +21,6 @@ class PostsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private fun loadImage(image: String) = with(itemView) {
         Picasso.get()
             .load(image)
-            .networkPolicy(NetworkPolicy.OFFLINE)
             .fit()
             .centerCrop()
             .into(main_iv)
