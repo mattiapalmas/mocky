@@ -20,5 +20,5 @@ data class PostRoom(
     @ColumnInfo(name = "published_at")
     val published_at: String
 ) {
-    fun toPost() = Post(id, user_id, title,description, image, published_at)
+    fun toPost() = Post(id, user_id, title, description, image, published_at)
 }

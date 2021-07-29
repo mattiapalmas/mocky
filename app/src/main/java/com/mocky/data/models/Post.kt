@@ -7,4 +7,6 @@ data class Post(
     val description: String,
     val image: String,
     val published_at: String
-)
+) {
+    fun toPostRoom() = PostRoom(id, user_id, title, description, image, published_at)
+}

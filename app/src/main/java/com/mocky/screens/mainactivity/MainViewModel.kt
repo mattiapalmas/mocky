@@ -20,20 +20,38 @@ class MainViewModel(
     val showErrorLiveData: LiveData<GeneralError> get() = showErrorMutableLiveData
     private val showErrorMutableLiveData = MutableLiveData<GeneralError>()
 
+    private val _showProgressLiveData = MutableLiveData<Boolean>()
+    val showProgressLiveData: LiveData<Boolean>
+        get() = _showProgressLiveData
+
     fun loadPosts() {
+        showProgressBar()
+
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 postsRepo.getPosts()
             }
-                .onSuccess { result -> postsMutableLiveData.postValue(result) }
+                .onSuccess { result ->
+                    hideProgressBar()
+                    postsMutableLiveData.postValue(result)
+                }
                 .onFailure { error ->
+                    hideProgressBar()
                     showErrorMutableLiveData.postValue(
                         GeneralError(
-                            "Something went wrong fetching posts",
+                            error.message ?: "Something went wrong while fetching posts.",
                             error
                         )
                     )
                 }
         }
+    }
+
+    private fun showProgressBar() {
+        _showProgressLiveData.postValue(true)
+    }
+
+    private fun hideProgressBar() {
+        _showProgressLiveData.postValue(false)
     }
 }

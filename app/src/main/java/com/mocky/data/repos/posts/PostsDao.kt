@@ -9,9 +9,9 @@ import com.mocky.data.models.PostRoom
 @Dao
 interface PostsDao {
 
-    /*@Query("SELECT * FROM posts")
+    @Query("SELECT * FROM posts")
     suspend fun get(): List<PostRoom>
 
     @Insert(onConflict= OnConflictStrategy.REPLACE)
-    suspend fun save(posts: List<PostRoom>)*/
+    suspend fun save(posts: List<PostRoom>)
 }

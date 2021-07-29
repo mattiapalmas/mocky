@@ -3,6 +3,7 @@ package com.mocky.common.viewholders
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mocky.data.models.Post
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.post_item.view.*
 
@@ -20,6 +21,7 @@ class PostsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private fun loadImage(image: String) = with(itemView) {
         Picasso.get()
             .load(image)
+            .networkPolicy(NetworkPolicy.OFFLINE)
             .fit()
             .centerCrop()
             .into(main_iv)
